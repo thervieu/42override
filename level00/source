@@ -1,0 +1,17 @@
+int main() {
+
+    puts("***********************************");
+    puts("* 	     -Level00 -		  *");
+    puts("***********************************");
+    printf("Password:");
+    scanf("%d"); // asssuming 'var' is the next registery
+
+    if (var == 0x149c) {
+        puts("\nAuthanticated!");
+        system("/bin/sh");
+    }
+    else {
+        puts("\nInvalidPassword")
+    }
+    return 0;
+}

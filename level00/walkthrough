@@ -1,0 +1,16 @@
+a few puts that print a header
+a print that prints "Password:"
+
+scanf("%d")
+
+if (value == 0x149c), then we go inside a shell (in dec 5276)
+
+else printf "Invalid password"
+
+./level00
+[...]
+Password:5276
+Authenticated!
+$
+
+we are inside the shell code
