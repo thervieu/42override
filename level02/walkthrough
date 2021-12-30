@@ -1,0 +1,17 @@
+everything is overflow-proof
+
+but one printf call is unprotected
+
+"%p " * 30 for first fgets call (%p because %x only prints the first 4 bytes of the values)
+we don't care about the second one
+
+* 30 because difference between the address of the username_string and the password read in the fread call in 28
+
+we see that we write "%p " (as 0x2520702520702520) at the end
+and that there is what seems to be a string before it
+
+we decode it:
+
+python -c "print ''.join(v.decode('hex')[::-1] for v in ['756e505234376848' ,'45414a3561733951','377a7143574e6758', '354a35686e475873', '48336750664b394d'])"
+
+that's the password
