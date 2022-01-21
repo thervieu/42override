@@ -1,0 +1,5 @@
+fgets(tmp, 70);
+
+tmp.lower()
+print(tmp)
+exit()

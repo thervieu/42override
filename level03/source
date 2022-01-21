@@ -1,0 +1,42 @@
+int decrypt(int value) {
+    buffer = "Q}|u`sfg~sf{}|a3";
+    if (value > 21) {
+        for (int i = 0; i < strlen(buffer); i++) {
+                buffer[i] = buffer[i] ^ value;
+        }
+    }
+    if (strcmp(buffer, "Congratulations!") == 0) {
+            eax = system("/bin/sh");
+    }
+    else{
+            eax = puts("\nInvalid Password");
+    }
+    esi = var_C ^ *0x14;
+    if (esi != 0x0) {
+            eax = __stack_chk_fail();
+    }
+    return eax;
+}
+
+int test(int value, int givenInt) {
+    if (givenInt - value < 21)
+        decrypt(givenInt - value);
+    else
+        decrypt(22);
+
+loc_804884a:
+    eax = rand();
+    eax = decrypt(eax);
+    return eax;
+
+int main(int ac, char **av) {
+    int value;
+    srand(time(0x0));
+    puts("***********************************");
+    puts("*\t\tlevel03\t\t**");
+    puts("***********************************");
+    printf("Password:");
+    scanf("%d", &value) // reads stdin and get int
+    test(value, 322424845);
+    return 0x0;
+}
