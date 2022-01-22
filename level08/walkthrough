@@ -1,0 +1,11 @@
+level08 takes one argument.
+reads it and tries to save it in ~/backups
+in backups/.log , it says what it did when it succeeds.
+
+we can't simply do ./level08 /home/users/level09/.pass
+because it concatenates ./backups to av[1] and ./backups//home/users/level09/.pass doesn't exist
+
+we can simply do a symlink
+ln -s /home/users/level09/.pass pass
+./level08 pass
+cat .backups/pass
