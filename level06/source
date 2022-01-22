@@ -1,0 +1,19 @@
+int auth(string username, string serialized) {
+    if strlen(username) < 5
+      return 0;
+    ptrace() // didn't bother making it work
+    // serialize 'username' into 'actual_serialized'
+    return serialized == acutal_serialized
+}
+
+int main() {
+    puts(whatever);
+    printf(whatever2);
+    fgets(username);
+    puts(whatever3);
+    printf(whatever4);
+    fgets(serialized);
+    if auth(username, serialized)
+        system("/bin/sh");
+    return 0;
+}
