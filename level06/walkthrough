@@ -1,0 +1,12 @@
+asks for username
+then the serialized username
+
+calls auth() function -> verifies that username.length() > 5
+ptrace call that we can overcome (breakpoint + 'set $eax=0')
+
+after tumbling around the binary, we see that the cmp at 0x08048866
+breakpoint there and print in decimal the serialized username created before in the function
+
+abcdef -> 6232802
+
+we get into a shell as level07
