@@ -13,7 +13,7 @@ int main() {
     }
     
     eax = wait(0);
-    if (wored)
+    if (worked)
         puts("child is exiting...\n");
         
     // I did not bother tranlating this part

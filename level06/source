@@ -3,7 +3,7 @@ int auth(string username, string serialized) {
       return 0;
     ptrace() // didn't bother making it work
     // serialize 'username' into 'actual_serialized'
-    return serialized == acutal_serialized
+    return serialized == actual_serialized
 }
 
 int main() {
