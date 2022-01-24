@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int verify_user_name(char *name) {
     return (strcmp(pwd, "admin"));
 }
