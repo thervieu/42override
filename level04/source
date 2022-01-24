@@ -1,19 +1,20 @@
-int main() {
+#include <stdio.h>
+#include <string.h>
+
+int main(int ac, char **av) {
     int worked = fork();
-    asm { rep stosd  dword [edi], eax };
     if (worked == 0) {
-        prctl(0x1);
-        var_B0 = 0x0;
-        var_B4 = 0x0;
-        ptrace(0x0);
+        prctl(1);
+        ptrace(0);
         puts("Give me some shellcode, k");
-        var_B8 = &var_98;
-        gets(var_B8);
-        return 0x0;
+        char str[156];
+        gets(str);
+        return 0;
     }
-    
-    eax = wait(0);
+    wait(0);
     if (worked)
         puts("child is exiting...\n");
-        
+
     // I did not bother tranlating this part
+    return 0;
+}

@@ -1,13 +1,17 @@
-int main() {
+#include <stdio.h>
+#include <string.h>
+
+int main(int ac, char **av) {
 
     puts("***********************************");
     puts("* 	     -Level00 -		  *");
     puts("***********************************");
     printf("Password:");
-    scanf("%d"); // asssuming 'var' is the next registery
+    int var;
+    scanf("%d", var); // asssuming 'var' is the next registery
 
-    if (var == 0x149c) {
-        puts("\nAuthanticated!");
+    if (var == 5276) {
+        puts("\nAuthenticated!");
         system("/bin/sh");
     }
     else {

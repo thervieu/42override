@@ -1,39 +1,41 @@
-int main(int arg0, int arg1) {
-    var_8 = fopen("/home/users/level03/.pass", 0x400bb0);
-    if (var_8 == 0x0) {
-            fwrite("ERROR: failed to open password file\n", 0x1, 0x24, *stderr@@GLIBC_2.2.5);
-            rax = exit(0x1);
+#include <stdio.h>
+#include <string.h>
+
+int main(int ac, char ** av) {
+    int fd = fopen("/home/users/level03/.pass", 0x400bb0);
+    if (fd == 0) {
+            fwrite("ERROR: failed to open password file\n", 1, 36, stderr);
+            rax = exit(1);
     }
     else {
-            rax = fread(&var_A0, 0x1, 0x29, var_8);
+            rax = fread(&var_A0, 1, 41, fd);
             var_C = rax;
             rax = strcspn(&var_A0, 0x400bf5);
-            *(int8_t *)(rbp + (rax - 0xa0)) = 0x0;
-            if (var_C != 0x29) {
-                    fwrite("ERROR: failed to read password file\n", 0x1, 0x24, *stderr@@GLIBC_2.2.5);
-                    fwrite("ERROR: failed to read password file\n", 0x1, 0x24, *stderr@@GLIBC_2.2.5);
-                    rax = exit(0x1);
+            *(int8_t *)(rbp + (rax - 10)) = 0;
+            if (var_C != 41) {
+                    fwrite("ERROR: failed to read password file\n", 1, 36, stderr);
+                    rax = exit(1);
             }
             else {
-                    fclose(var_8);
+                    fclose(fd);
                     puts("===== [ Secure Access System v1.0 ] =====");
-                    puts("/***************************************\");
+                    puts("/***************************************\\");
                     puts("| You must login to access this system. |");
-                    puts("\**************************************/");
+                    puts("\\**************************************/");
                     printf("--[ Username: ");
-                    fgets(&var_70, 0x64, *stdin@@GLIBC_2.2.5);
+                    fgets(&var_70, 100, stdin);
                     rax = strcspn(&var_70, 0x400bf5);
-                    *(int8_t *)(rbp + (rax - 0x70)) = 0x0;
+                    *(int8_t *)(rbp + (rax - 112)) = 0;
                     printf("--[ Password: ");
-                    fgets(&var_110, 0x64, *stdin@@GLIBC_2.2.5);
+                    fgets(&var_110, 100, stdin);
                     rax = strcspn(&var_110, 0x400bf5);
-                    *(int8_t *)(rbp + (rax - 0x110)) = 0x0;
+                    *(int8_t *)(rbp + (rax - 272)) = 0;
                     puts("*****************************************");
-                    rax = strncmp(&var_A0, &var_110, 0x29);
-                    if (rax == 0x0) {
+                    rax = strncmp(&var_A0, &var_110, 41);
+                    if (rax == 0) {
                             printf("Greetings, %s!\n", &var_70);
                             system("/bin/sh");
-                            rax = 0x0;
+                            rax = 0;
                     }
                     else {
                             printf(&var_70);

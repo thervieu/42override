@@ -7,10 +7,12 @@ if (value == 0x149c), then we go inside a shell (in dec 5276)
 
 else printf "Invalid password"
 
+```
 ./level00
 [...]
 Password:5276
 Authenticated!
-$
-
-we are inside the shell code
+$whoami
+level01
+```
+we are inside a shell

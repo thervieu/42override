@@ -1,19 +1,31 @@
-int auth(string username, string serialized) {
+#include <stdio.h>
+#include <string.h>
+
+
+int auth(char *username, char *serialized) {
     if strlen(username) < 5
       return 0;
-    ptrace() // didn't bother making it work
+    ptrace(0)
     // serialize 'username' into 'actual_serialized'
-    return serialized == actual_serialized
+    return (serialized == actual_serialized);
 }
 
 int main() {
-    puts(whatever);
-    printf(whatever2);
+    puts("***********************************\n"
+        "*		level06		  *\n"
+        "***********************************\n");
+    printf("-> Enter Login: ");
     fgets(username);
-    puts(whatever3);
-    printf(whatever4);
+
+    puts("***********************************\n"
+          "***** NEW ACCOUNT DETECTED ********\n"
+          "***********************************\n");
+    printf("-> Enter Serial: ");
     fgets(serialized);
-    if auth(username, serialized)
-        system("/bin/sh");
+
+    if (strlen(username) > 5) {
+        if (auth(username, serialized))
+            system("/bin/sh");
+    }
     return 0;
 }

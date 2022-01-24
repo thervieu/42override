@@ -1,5 +1,13 @@
-fgets(tmp, 70);
+#include <stdio.h>
+#include <string.h>
 
-tmp.lower()
-print(tmp)
-exit()
+int main(int ac, char **av)
+    char input[70];
+    fgets(input, 70, stdin);
+    for (int i = 0; i < strlen(input); i++)
+        if (isupper(input[i]))
+            input[i] = input[i] - 'A' + 'a';
+    print(input);
+    exit();
+    return 0;
+}

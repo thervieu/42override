@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 int decrypt(int value) {
     buffer = "Q}|u`sfg~sf{}|a3";
     if (value > 21) {
@@ -23,11 +26,6 @@ int test(int value, int givenInt) {
         decrypt(givenInt - value);
     else
         decrypt(22);
-
-loc_804884a:
-    eax = rand();
-    eax = decrypt(eax);
-    return eax;
 
 int main(int ac, char **av) {
     int value;
