@@ -30,9 +30,9 @@ int store_number(unsigned int *array)
   index = get_unum();
   if (index % 3 == 0)
   {
-    puts(" *** ERROR! ***");
-    puts("   This index is reserved for wil!");
-    puts(" *** ERROR! ***");
+    puts(" *** ERROR! ***\n"
+         "   This index is reserved for wil!\n";
+         " *** ERROR! ***\n");
     ret = 1;
   }
   else

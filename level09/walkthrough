@@ -1,6 +1,13 @@
 https://devblogs.microsoft.com/oldnewthing/20050107-00/?p=36773
 -> strncpy doesn't check null termination
 
+the structure used is the following:
+typedef struct msg {
+    char msg[140];
+    char username[40];
+    unsigned int size;
+} t_msg;
+
 https://studylib.net/doc/5719952/stack-overflow
 -> we can change the length of the buffer to 256 in order to reach the saved rip
 and then modify the saved rip of the first frame

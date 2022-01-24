@@ -3,9 +3,9 @@
 
 typedef struct msg
 {
-  char    content[140];
-  char    username[40];
-  size_t  size;
+    char    content[140];
+    char    username[40];
+    unsigned int  size;
 } msg_t;
 
 void secret_backdoor(void)
@@ -29,7 +29,7 @@ void set_msg(msg_t *msg)
 void set_username(msg_t *msg)
 {
   char    *username[16];
-  size_t  idx;
+  unsigned int idx;
 
   puts(">: Enter your username");
   printf(">>: ");
