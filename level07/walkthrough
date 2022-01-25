@@ -2,20 +2,22 @@ binary basically stores unsigned integers at indexes
 we can't store at values that are multiple of 3 (value % 3 == 0)
 when storing, value is stored at index * 4
 
-let's try and see where we store in the memory using gdb
-
-seems like at table of 100 ints
+let's try and see where we store eips in the memory using gdb
 
 b read_number
 x/x $ebp+0x8
--> 0xffffd524 is the address of the beginning of the table
+-> 0xffffXXXX is the address of the beginning of the table
 
-when reading (breakpoint on read_number call), eip is stored at address 0xffffd6ec
+when reading (breakpoint on read_number call), saved eip of the first frame is stored at address 0xffffYYYY
 
-which would be index 0xffffd6ec - 0xffffd524 / 4 = 114 of the table
+which would be index 0xffffYYYY - 0xffffXXXX / 4 = 114
 
-however 114 = 3 * 48 so we can't simply use it
--> we'll overflow with (uintmax + 1) / 4 + 114 =  1073741938
+saved eip of the first frame would be stored at the 114th index of the unsigned int table
+
+however 114 = 3 * 48 so we can't simply call this index
+-> we'll overflow with (uintmax + 1) / 4 + 114 =  1073741938 // uintmax = 2^32 - 1
+
+We work with the first frame in order to reach a shell when trying to quit the program.
 
 ret2lic attack and we're done
 
@@ -23,4 +25,4 @@ info function system
 info function exit
 find mapped_start, mapped_end, "/bin/sh"
 
-put those values in decimal and put them at index 114, 115 and 116
+put those values in decimal and put them at index 1073741938, 115 and 116

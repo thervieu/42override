@@ -1,20 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-void log_wrapper(FILE *f, char *string, char *filename)
-{
-  char    *content;
-  size_t  idx;
-
-  strcpy(content, string);
-  snprintf(content, strlen(filename), filename);
-  idx = strcspn(content, "\n");
-  content[idx] = '\0';
-  fprintf(fs, "LOG: %s\n", content);
+void log_wrapper(FILE *f, char *string, char *filename) {
+  // print to /backups/.log
 }
 
-int main(int ac, char **av)
-{
+int main(int ac, char **av) {
   FILE  *logFS;
   FILE  *fileFS;
   char  *file = "./backups/";
@@ -35,7 +26,7 @@ int main(int ac, char **av)
   }
 
   strncat(file, av[1], strlen(av[1]));
-  fd = open(file, 0xc1, 0x1b0);
+  fd = open(file);
   if (fd < 0) {
     printf("ERROR: Failed to open %s%s\n", "./backups/", av[1]);
     exit(1);

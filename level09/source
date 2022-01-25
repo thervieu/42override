@@ -1,24 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct msg
-{
+typedef struct msg {
     char    content[140];
     char    username[40];
     unsigned int  size;
 } msg_t;
 
-void secret_backdoor(void)
-{
-  char shellcode[128];
+void secret_backdoor(void) {
+  char shellcode[some_length];
 
-  fgets(shellcode, 128, stdin);
+  fgets(shellcode, some_length, stdin);
   system(shellcode);
 }
 
-void set_msg(msg_t *msg)
-{
-  char *content[128];
+void set_msg(msg_t *msg) {
+  char *content[some_length2];
 
   puts(">: Msg @Unix-Dude");
   printf(">>: ");

@@ -21,7 +21,7 @@ int decrypt(int value) {
     return eax;
 }
 
-int test(int value, int givenInt) {
+int test(int givenInt, int value) {
     if (givenInt - value < 21)
         decrypt(givenInt - value);
     else
@@ -35,6 +35,6 @@ int main(int ac, char **av) {
     puts("***********************************");
     printf("Password:");
     scanf("%d", &value) // reads stdin and get int
-    test(value, 322424845);
+    test(322424845, value);
     return 0x0;
 }

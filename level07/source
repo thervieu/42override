@@ -1,17 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-unsigned int get_unum()
-{
-  unsigned int value;
+unsigned int get_unum(void) {
 
-  fflush(stdout);
-  scanf("%u", value);
-  return value;
 }
 
-int read_number(unsigned int *array)
-{
+int read_number(unsigned int *array) {
   printf(" Index: ");
   int index = get_unum();
   printf(" Number at data[%u] is %u\n", index, *(index * 4 + array));
@@ -43,8 +37,7 @@ int store_number(unsigned int *array)
   return ret;
 }
 
-int main(void)
-{
+int main(void) {
   char          cmd[20];
   int           ret;
   unsigned int  array[100];
